@@ -95,17 +95,17 @@
 		<div id="toc" class="toc-article">
 			<h2 class="toc-title"><span>文章目录</span></h2>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_WebView概要"><span class="toc-number">1.</span> <span class="toc-text">1. WebView概要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-_简单Demo"><span class="toc-number">2.</span> <span class="toc-text">2. 简单Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-_WebViewClient"><span class="toc-number">3.</span> <span class="toc-text">3. WebViewClient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-_JavaScript"><span class="toc-number">4.</span> <span class="toc-text">4. JavaScript</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebView概要"><span class="toc-number">1.</span> <span class="toc-text">WebView概要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单Demo"><span class="toc-number">2.</span> <span class="toc-text">简单Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebViewClient"><span class="toc-number">3.</span> <span class="toc-text">WebViewClient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript"><span class="toc-number">4.</span> <span class="toc-text">JavaScript</span></a></li></ol>
 		
 		</div>
 		
-        <h3 id="1-_WebView概要">1. WebView概要</h3>
+        <h3 id="WebView概要">WebView概要</h3>
 <ul>
 <li>WebView继承自View。</li>
 <li>WebView核心功能就是作为一个视图(View)展现一个网页（Web Page）。</li>
 </ul>
 <p><a id="more"></a></p>
-<h3 id="2-_简单Demo">2. 简单Demo</h3>
+<h3 id="简单Demo">简单Demo</h3>
 <p>下面是一个简单的Demo工程的核心代码以及详细注释。</p>
 <p>AndroidManifest.xml中添加网络权限：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre>1
@@ -166,7 +166,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h3 id="3-_WebViewClient">3. WebViewClient</h3>
+<h3 id="WebViewClient">WebViewClient</h3>
 <p>上面的简单Demo工程运行会打开百度首页，但是当点击网页上的“新闻”、“地图”时系统却弹出了选择浏览器应用打开页面的对话框。有时候，我们可能更希望直接让自己的应用打开“新闻”、“地图”等网页。这时候只要简单地通过WebView的setWebViewClient(new WebViewClient())来实现该功能。</p>
 <p>在下面的代码中实现的匿名内部类WebViewClient中几个重要常用方法中打印log是为了方便查看其调用相关的逻辑。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre>1
@@ -233,7 +233,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h3 id="4-_JavaScript">4. JavaScript</h3>
+<h3 id="JavaScript">JavaScript</h3>
 <p>WebView默认并不支持JavaScript，可以通过WebView的getSettings()方法获取内部的WebSettings实例，再通过调用WebSettings的setJavaScriptEnabled(true)来支持JavaScript。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre>1
 2
@@ -324,7 +324,7 @@ ws.setJavaScriptEnabled(<span class="keyword">true</span>);
 
 	  
 <span>
-更新日期:<time datetime="2014-05-07T02:10:07.000Z" itemprop="dateModified">5月 7 2014</time>
+更新日期:<time datetime="2014-05-07T02:11:41.000Z" itemprop="dateModified">5月 7 2014</time>
 </span>
 
 
@@ -355,7 +355,7 @@ ws.setJavaScriptEnabled(<span class="keyword">true</span>);
           
   <div id="toc" class="toc-aside">
   <h2 class="toc-title">文章目录</h2>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_WebView概要"><span class="toc-number">1.</span> <span class="toc-text">1. WebView概要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-_简单Demo"><span class="toc-number">2.</span> <span class="toc-text">2. 简单Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-_WebViewClient"><span class="toc-number">3.</span> <span class="toc-text">3. WebViewClient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-_JavaScript"><span class="toc-number">4.</span> <span class="toc-text">4. JavaScript</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebView概要"><span class="toc-number">1.</span> <span class="toc-text">WebView概要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单Demo"><span class="toc-number">2.</span> <span class="toc-text">简单Demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebViewClient"><span class="toc-number">3.</span> <span class="toc-text">WebViewClient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript"><span class="toc-number">4.</span> <span class="toc-text">JavaScript</span></a></li></ol>
   </div>
 
 <aside id="sidebar">
