@@ -239,7 +239,44 @@ interface DangerousMonster extends Monster {
 
 <h3 id="常数分组">常数分组</h3>
 <p>由于置入一个接口的所有字段都自动具有 static 和 final 属性，所以接口是对常数值进行分组的一个好工具，它具有与 C 或 C++的 enum 非常相似的效果。</p>
-<p>```java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="javadoc">/**
+ * Task State Constant Class
+ *
+ */</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TaskState</span> {</span>	
+	<span class="comment">// pending task</span>
+	<span class="keyword">int</span> STATE_PENDING = <span class="number">1</span>;
+	<span class="comment">// running task</span>
+	<span class="keyword">int</span> STATE_RUNNING = <span class="number">2</span>;
+	<span class="comment">// task has been paused</span>
+	<span class="keyword">int</span> STATE_PAUSE = <span class="number">3</span>;
+	<span class="comment">// task has been deleted or canceled</span>
+	<span class="keyword">int</span> STATE_DELETE = <span class="number">4</span>;
+	<span class="comment">// task is finished</span>
+	<span class="keyword">int</span> STATE_FINISHED = <span class="number">5</span>;
+	<span class="comment">// task failed</span>
+	<span class="keyword">int</span> STATE_FAILED = <span class="number">6</span>;
+}
+</pre></td></tr></table></figure>
+
 
       
     </div>
@@ -254,7 +291,7 @@ interface DangerousMonster extends Monster {
 
 	  
 <span>
-更新日期:<time datetime="2014-05-12T01:28:58.000Z" itemprop="dateModified">5月 12 2014</time>
+更新日期:<time datetime="2014-05-12T01:40:06.000Z" itemprop="dateModified">5月 12 2014</time>
 </span>
 
 
