@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: WebView | slowalker</title>
+  <title>Java内部类小结 | slowalker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta content="website" property="og:type">
-<meta content="slowalker" property="og:title">
-<meta content="http://yoursite.com/tags/WebView/" property="og:url">
+  <meta content="article" property="og:type">
+<meta content="Java内部类小结" property="og:title">
+<meta content="http://yoursite.com/2014/05/12/java-innerclass/" property="og:url">
 <meta property="og:image">
 <meta content="slowalker" property="og:site_name">
 <meta content="Personal Blog of Slowalker" property="og:description">
@@ -62,46 +62,153 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
+        <section id="main"><article id="post-java-innerclass" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-<a href="/2014/05/07/android-webview-1/" class="archive-article-date">
-  <time datetime="2014-05-07T01:02:42.000Z" itemprop="datePublished">5月 7</time>
+<a href="/2014/05/12/java-innerclass/" class="article-date">
+  <time datetime="2014-05-12T02:27:56.000Z" itemprop="datePublished">5月 12 2014</time>
 </a>
 
 
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/05/07/android-webview-1/">Android WebView 初步总结</a>
+    <h1 class="article-title" itemprop="name">
+      Java内部类小结
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+		
+		<div id="toc" class="toc-article">
+			<h2 class="toc-title"><span>文章目录</span></h2>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员内部类"><span class="toc-number">2.</span> <span class="toc-text">成员内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态内部类"><span class="toc-number">3.</span> <span class="toc-text">静态内部类</span></a></li></ol>
+		
+		</div>
+		
+        <h3 id="简介">简介</h3>
+<p>简单地说，内部类是放在一个类内部的类。内部类核心提要如下：</p>
+<blockquote>
+<ul>
+<li>内部类可以很好地实现隐藏。<ul>
+<li>一般的非内部类，不允许使用private、protected修饰，但内部类可以。</li>
+</ul>
+</li>
+<li>内部类可以访问外部类的所有方法与属性。<ul>
+<li>静态内部类只能访问外部类的静态属性与方法。</li>
+</ul>
+</li>
+<li>内部类仍然是一个独立的类。<ul>
+<li>编译之后会内部类会被编译成独立的.class文件，但是前面冠以外部类的类命和$符号。<a id="more"></a>
+
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="成员内部类">成员内部类</h3>
+<p>形式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>class OuterClass {
+	class InnerClass {
+	}
+}
+</pre></td></tr></table></figure>
+
+<p>编译上述代码会产生两个文件：OuterClass.class和OuterClass$InnerClass.class。<br>成员内部类内不允许有任何静态声明！下面代码不能通过编译。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>class InnerClass {
+	<span class="comment">// The field couner cannot be declared static in a non-static inner type, </span>
+	<span class="comment">// unless initialized with a constant.</span>
+	<span class="comment">// private static int couner = 0; </span>
+}
+</pre></td></tr></table></figure>
+
+<p>能够访问成员内部类的唯一途径就是通过外部类的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>OuterClass.InnerClass innerClass = <span class="keyword">new</span> OuterClass().<span class="keyword">new</span> InnerClass();
+</pre></td></tr></table></figure>
+
+<h3 id="静态内部类">静态内部类</h3>
+<p>静态内部类中”静”的含义是该内部类可以像其他静态成员一样，在没有外部类对象时也能够访问它。静态嵌套类不能访问外部类的非静态成员和方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>class OuterClass {
+	<span class="keyword">static</span> class InnerClass {
+	}
+}
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+	  
+	  <!-- 百度分享 Start -->
+	  <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+	  <!-- 百度分享 End -->
+	  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/InnerClass/">InnerClass</a></li></ul>
+
+	  
+<span>
+更新日期:<time datetime="2014-05-12T02:29:43.000Z" itemprop="dateModified">5月 12 2014</time>
+</span>
+
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2014/05/12/java-interface/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java接口(interface)小结</div>
+    </a>
+  
+</nav>
 
   
-  
-    </div></section>
-  
+</article>
+
+
+
+<!-- 多说评论框 start -->
+
+<!-- 多说评论框 end -->
 </section>
         
           
+  <div id="toc" class="toc-aside">
+  <h2 class="toc-title">文章目录</h2>
+  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成员内部类"><span class="toc-number">2.</span> <span class="toc-text">成员内部类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态内部类"><span class="toc-number">3.</span> <span class="toc-text">静态内部类</span></a></li></ol>
+  </div>
+
 <aside id="sidebar">
 
   
@@ -207,6 +314,8 @@
 
 <!-- 百度分享 start -->
 
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","douban","bdysc","sqq","qq","hi","baidu","huaban","youdao","sdo","mail","xg","diandian","fx","copy","print"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
 <!-- 百度分享 end -->
 
 <!--
@@ -228,6 +337,11 @@
 	<script src="/js/gotop.js"></script>
 	-->
 
+
+	<a class="icon-toc-toggle" href="javascript:void(0)" title="文章目录"></a>
+	<!--
+	<script src="/js/toc_aside_toggle.js"></script>
+	-->
 
 </div>
 <script type="text/javascript" src="/js/toc_aside_toggle.js"></script>
